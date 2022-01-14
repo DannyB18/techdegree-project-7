@@ -3,13 +3,34 @@ header {
   flex-direction: column;
 }
 
-.banner {
+.banner,
+.main-nav,
+.nav-item {
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  //   flex-direction: row;
+}
+
+.nav-item a {
+  max-height: $nav-icon-height;
+}
+
+.banner {
   background-color: $color-primary;
 }
 
 .main-nav {
   background-color: $color-accent;
+  padding: 0.8em 2em;
+}
+
+.icon {
+  fill: $white;
+  height: $nav-icon-height;
+  width: $nav-icon-height;
+}
+
+#notification-bell {
+  height: 35px;
+  width: 35px;
 }

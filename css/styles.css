@@ -345,9 +345,27 @@ template {
 }
 
 body {
+  display: grid;
   line-height: 1.5;
+  font-family: "Martel Sans", sans-serif;
+  font-weight: 400;
 }
 
+header {
+  color: #fff;
+}
+
+h1 {
+  font-weight: 200;
+}
+h1 sup {
+  font-size: 0.35em;
+  position: relative;
+  vertical-align: top;
+  top: 1.4em;
+}
+
+body,
 header {
   display: grid;
 }
@@ -357,14 +375,36 @@ header {
   flex-direction: column;
 }
 
-.banner {
+.banner,
+.main-nav,
+.nav-item {
   display: flex;
+  justify-content: space-around;
   align-items: center;
+}
+
+.nav-item a {
+  max-height: 40px;
+}
+
+.banner {
   background-color: #7477bf;
 }
 
 .main-nav {
   background-color: #4d4c72;
+  padding: 0.8em 2em;
+}
+
+.icon {
+  fill: #fff;
+  height: 40px;
+  width: 40px;
+}
+
+#notification-bell {
+  height: 35px;
+  width: 35px;
 }
 
 /*# sourceMappingURL=styles.css.map */
