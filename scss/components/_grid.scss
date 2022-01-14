@@ -2,3 +2,19 @@ body,
 header {
   display: grid;
 }
+
+section {
+  border-bottom: $divide-line;
+}
+
+.empty-slots {
+  background-color: #f7f7f7;
+  border-bottom: $divide-line;
+  width: auto;
+}
+
+.tab {
+  background-color: $white;
+  border-right: $divide-line;
+  border-bottom: solid 2px $white;
+}

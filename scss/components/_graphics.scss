@@ -1,0 +1,22 @@
+.icon {
+  fill: $white;
+  height: $nav-icon-height;
+  width: $nav-icon-height;
+}
+
+// #notifications {
+//   background-color: $color-primary;
+//   border: 0;
+// }
+
+#bell {
+  height: 25px;
+  width: 25px;
+  margin-left: auto;
+  padding: 0;
+}
+
+.profile-pic {
+  max-width: 45px;
+  border-radius: 50%;
+}

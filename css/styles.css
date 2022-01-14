@@ -345,7 +345,6 @@ template {
 }
 
 body {
-  display: grid;
   line-height: 1.5;
   font-family: "Martel Sans", sans-serif;
   font-weight: 400;
@@ -353,10 +352,18 @@ body {
 
 header {
   color: #fff;
+  font-size: 1em;
+}
+header span {
+  font-weight: 200;
+  font-size: 0.9em;
+  padding: 0 10px;
 }
 
 h1 {
+  font-size: 1.5em;
   font-weight: 200;
+  padding: 0 10px;
 }
 h1 sup {
   font-size: 0.35em;
@@ -365,9 +372,42 @@ h1 sup {
   top: 1.4em;
 }
 
+h2 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin: 0.7em 1em;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 1em;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+}
+
 body,
 header {
   display: grid;
+}
+
+section {
+  border-bottom: solid 2px lightgrey;
+}
+
+.empty-slots {
+  background-color: #f7f7f7;
+  border-bottom: solid 2px lightgrey;
+  width: auto;
+}
+
+.tab {
+  background-color: #fff;
+  border-right: solid 2px lightgrey;
+  border-bottom: solid 2px #fff;
 }
 
 header {
@@ -375,16 +415,26 @@ header {
   flex-direction: column;
 }
 
+.banner {
+  height: 75px;
+}
+
 .banner,
 .main-nav,
-.nav-item {
+.nav-item,
+#profile {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+.tab-slots {
+  display: flex;
+  flex-direction: row;
+}
+
 .nav-item a {
-  max-height: 40px;
+  max-height: 35px;
 }
 
 .banner {
@@ -393,18 +443,31 @@ header {
 
 .main-nav {
   background-color: #4d4c72;
-  padding: 0.8em 2em;
+  padding: 0.8em 3em;
+}
+
+#profile {
+  border-left: solid 1px #999;
+  padding-left: 10px;
+  margin-left: 10px;
 }
 
 .icon {
   fill: #fff;
-  height: 40px;
-  width: 40px;
-}
-
-#notification-bell {
   height: 35px;
   width: 35px;
+}
+
+#bell {
+  height: 25px;
+  width: 25px;
+  margin-left: auto;
+  padding: 0;
+}
+
+.profile-pic {
+  max-width: 45px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=styles.css.map */

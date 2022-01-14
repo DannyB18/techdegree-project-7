@@ -3,12 +3,22 @@ header {
   flex-direction: column;
 }
 
+.banner {
+  height: 75px;
+}
+
 .banner,
 .main-nav,
-.nav-item {
+.nav-item,
+#profile {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.tab-slots {
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-item a {
@@ -21,16 +31,11 @@ header {
 
 .main-nav {
   background-color: $color-accent;
-  padding: 0.8em 2em;
+  padding: 0.8em 3em;
 }
 
-.icon {
-  fill: $white;
-  height: $nav-icon-height;
-  width: $nav-icon-height;
-}
-
-#notification-bell {
-  height: 35px;
-  width: 35px;
+#profile {
+  border-left: solid 1px #999;
+  padding-left: 10px;
+  margin-left: 10px;
 }
