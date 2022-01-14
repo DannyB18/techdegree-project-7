@@ -1,3 +1,6 @@
+/* =========================
+    Variables
+========================= */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -335,6 +338,33 @@ template {
  */
 [hidden] {
   display: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+}
+
+header {
+  display: grid;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  background-color: #7477bf;
+}
+
+.main-nav {
+  background-color: #4d4c72;
 }
 
 /*# sourceMappingURL=styles.css.map */
