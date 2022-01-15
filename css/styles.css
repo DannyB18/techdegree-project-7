@@ -392,19 +392,22 @@ textarea {
   resize: none;
 }
 
-body,
 header,
 main {
   display: grid;
 }
 
-section {
-  border-bottom: solid 2px lightgrey;
+header {
+  grid-template-rows: 1fr 1fr;
 }
 
 main {
   grid-template-rows: 65px;
   grid-auto-rows: minmax(1fr, auto);
+}
+
+section {
+  border-bottom: solid 2px lightgrey;
 }
 
 .tab-slots {
@@ -422,6 +425,11 @@ main {
   background-color: #fff;
   border-right: solid 2px lightgrey;
   border-bottom: solid 2px #fff;
+}
+
+.inactive {
+  background-color: #ebebeb;
+  border-bottom: solid 2px lightgrey;
 }
 
 header {
@@ -469,7 +477,7 @@ header {
 
 #bell {
   height: 25px;
-  width: 25px;
+  width: 35px;
   margin-left: auto;
   padding: 0;
 }
@@ -477,6 +485,55 @@ header {
 .profile-pic {
   max-width: 45px;
   border-radius: 50%;
+}
+
+.alert {
+  display: flex;
+  max-width: 90%;
+  font-size: 1.1rem;
+  font-weight: 200;
+  justify-content: space-between;
+  color: #fff;
+  background-color: #7477bf;
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto;
+}
+.alert p {
+  margin: 0;
+}
+
+button {
+  font-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+  border: 0;
+}
+
+.bell {
+  transform-origin: 50% 0%;
+}
+
+#bell:hover .bell {
+  animation: bell-ring 0.7s ease-out forwards;
+}
+
+@keyframes bell-ring {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(7deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

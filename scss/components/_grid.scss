@@ -1,16 +1,19 @@
-body,
 header,
 main {
   display: grid;
 }
 
-section {
-  border-bottom: $divide-line;
+header {
+  grid-template-rows: 1fr 1fr;
 }
 
 main {
   grid-template-rows: 65px;
   grid-auto-rows: minmax(1fr, auto);
+}
+
+section {
+  border-bottom: $divide-line;
 }
 
 .tab-slots {
@@ -28,4 +31,9 @@ main {
   background-color: $white;
   border-right: $divide-line;
   border-bottom: solid 2px $white;
+}
+
+.inactive {
+  background-color: rgb(235, 235, 235);
+  border-bottom: $divide-line;
 }
