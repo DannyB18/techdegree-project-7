@@ -1,5 +1,6 @@
 body,
-header {
+header,
+main {
   display: grid;
 }
 
@@ -7,10 +8,20 @@ section {
   border-bottom: $divide-line;
 }
 
+main {
+  grid-template-rows: 65px;
+  grid-auto-rows: minmax(1fr, auto);
+}
+
+.tab-slots {
+  display: flex;
+  flex-direction: row;
+}
+
 .empty-slots {
   background-color: #f7f7f7;
   border-bottom: $divide-line;
-  width: auto;
+  flex-grow: 1;
 }
 
 .tab {
