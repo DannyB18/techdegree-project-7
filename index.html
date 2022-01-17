@@ -9,8 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>WebApp</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+
     <header>
         <div class="banner">
             <h1><strong>Web</strong>App<sup><strong>TM</strong></sup></h1>
@@ -62,35 +64,119 @@
                 <button>x</button>
             </div>
         </div>
-        <section>
+        <section id="traffic">
             <h3>Traffic</h3>
+            <div class="traffic chart">
+                <div class="range">
+                    <button class="active">Hourly</button>
+                    <button>Daily</button>
+                    <button>Weekly</button>
+                    <button>Monthly</button>
+                </div>
+            <canvas id="hourlyChart" width="200" height="90"></canvas>
+            </div>
+            <script>
+                const ctx = document.getElementById('hourlyChart');
+                const hourlyChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+                        datasets: [  
+                        {
+                            label: '# of Votes',
+                            data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+                            fill: 'origin',
+                            tension: 0.4,
+                            backgroundColor: [
+                                'rgba(116, 119, 191, 0.3)'
+                            ],
+                            borderColor: [
+                                'rgba(116, 119, 191, 0.5)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
+
         </section>
-        <section>
+        <section id="daily-traffic">
             <h3>Daily Traffic</h3>
+            <div class="daily-bar chart">
+            <canvas id="dailyBar" width="200" height="90"></canvas>
+            </div>
+            <script>
+                const ctx1 = document.getElementById('dailyBar');
+                const dailyBar = new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                        datasets: [  
+                        {
+                            label: '# of Votes',
+                            data: [75, 115, 175, 125, 225, 200, 100],
+                            fill: 'origin',
+                            tension: 0.4,
+                            backgroundColor: [
+                                'rgba(116, 119, 191, 1)'
+                            ],
+                            borderColor: [
+                                'rgba(116, 119, 191, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            </script>
         </section>
-        <section>
+        <section id="mobile-users">
             <h3>Mobile Users</h3>
         </section>
-        <section>
+        <section id="social-stats">
             <h3>Social Stats</h3>
         </section>
-        <section>
+        <section id="new-members">
             <h3>New Members</h3>
         </section>
-        <section>
+        <section id="recent-activity">
             <h3>Recent Activity</h3>
         </section>
-        <section>
+        <section class="message">
             <h3>Message User</h3>
             <input type="search" placeholder="Search for User">
             <textarea placeholder="Message for User"></textarea>
         </section>
-        <section>
+        <section id="settings">
             <h3>Settings</h3>
             <select>
 
             </select>
         </section>
     </main>
+
 </body>
 </html>

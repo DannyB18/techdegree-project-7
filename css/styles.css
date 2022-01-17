@@ -387,6 +387,10 @@ h3 {
   margin-left: 1em;
 }
 
+#traffic h3 {
+  margin-bottom: 0;
+}
+
 textarea {
   overflow: auto;
   resize: none;
@@ -408,6 +412,14 @@ main {
 
 section {
   border-bottom: solid 2px lightgrey;
+}
+
+.range button {
+  font-size: 1.1rem;
+  padding: 0.6rem;
+  border-radius: 25px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
 .tab-slots {
@@ -512,6 +524,11 @@ header {
     transform: rotate(0deg);
   }
 }
+.active {
+  color: #fff;
+  background-color: #81c98f;
+}
+
 .alert {
   display: flex;
   max-width: 90%;
@@ -535,30 +552,15 @@ button {
   border: 0;
 }
 
-.bell {
-  transform-origin: 50% 0%;
+.traffic {
+  margin: auto;
+  width: 90%;
 }
 
-#bell:hover .bell {
-  animation: bell-ring 0.7s ease-out forwards;
-}
-
-@keyframes bell-ring {
-  20% {
-    transform: rotate(15deg);
-  }
-  40% {
-    transform: rotate(-15deg);
-  }
-  60% {
-    transform: rotate(7deg);
-  }
-  80% {
-    transform: rotate(-4deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
+.chart {
+  padding-bottom: 1rem;
+  margin: auto;
+  width: 90%;
 }
 
 /*# sourceMappingURL=styles.css.map */
