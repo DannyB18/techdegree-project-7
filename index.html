@@ -73,7 +73,7 @@
                     <button>Weekly</button>
                     <button>Monthly</button>
                 </div>
-                <canvas id="hourlyChart" width="200" height="90"></canvas>
+                <canvas id="hourlyChart" width="200" height="100"></canvas>
                 <script>
                     const ctx = document.getElementById('hourlyChart');
                     const hourlyChart = new Chart(ctx, {
@@ -103,7 +103,21 @@
                             },
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    ticks: {
+                                        font: {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        font: {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -144,7 +158,21 @@
                             },
                             scales: {
                                 y: {
-                                    beginAtZero: true
+                                    beginAtZero: true,
+                                    ticks: {
+                                        font: {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        font: {
+                                            size: 14,
+                                            weight: 'bold'
+                                        }
+                                    }
                                 }
                             }
                         }
