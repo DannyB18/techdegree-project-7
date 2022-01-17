@@ -487,6 +487,31 @@ header {
   border-radius: 50%;
 }
 
+.bell {
+  transform-origin: 50% 0%;
+}
+
+#bell:hover .bell {
+  animation: bell-ring 0.7s ease-out forwards;
+}
+
+@keyframes bell-ring {
+  20% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(7deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 .alert {
   display: flex;
   max-width: 90%;
