@@ -552,15 +552,14 @@ button {
   border: 0;
 }
 
-.traffic {
+.chart {
+  padding-bottom: 2rem;
   margin: auto;
   width: 90%;
 }
 
-.chart {
-  padding-bottom: 1rem;
-  margin: auto;
-  width: 90%;
+#userChart {
+  max-height: 175px;
 }
 
 /*# sourceMappingURL=styles.css.map */
