@@ -40,10 +40,13 @@ h3 {
   text-transform: uppercase;
   font-weight: 600;
   margin-left: 1em;
+  #traffic & {
+    margin-bottom: 0;
+  }
 }
 
-#traffic h3 {
-  margin-bottom: 0;
+h4 {
+  margin: 0;
 }
 
 textarea {

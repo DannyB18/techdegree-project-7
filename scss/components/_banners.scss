@@ -1,12 +1,3 @@
-header {
-  display: flex;
-  flex-direction: column;
-}
-
-.banner {
-  height: 75px;
-}
-
 .banner,
 .main-nav,
 .nav-item,
@@ -16,17 +7,18 @@ header {
   align-items: center;
 }
 
-.nav-item a {
-  max-height: $nav-icon-height;
-}
-
 .banner {
+  height: 75px;
   background-color: $color-primary;
 }
 
 .main-nav {
   background-color: $color-accent;
   padding: 0.8em 3em;
+}
+
+.nav-item a {
+  max-height: $nav-icon-height;
 }
 
 #profile {

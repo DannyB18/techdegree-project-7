@@ -1,0 +1,21 @@
+.tab-slots {
+  display: flex;
+  flex-direction: row;
+}
+
+.empty-slots {
+  background-color: #f7f7f7;
+  border-bottom: $divide-line;
+  flex-grow: 1;
+}
+
+.tab {
+  background-color: $white;
+  border-right: $divide-line;
+  border-bottom: solid 2px $white;
+}
+
+.inactive {
+  background-color: rgb(235, 235, 235);
+  border-bottom: $divide-line;
+}

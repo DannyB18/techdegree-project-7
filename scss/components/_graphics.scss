@@ -1,7 +1,21 @@
+.profile-pic {
+  max-width: 45px;
+  border-radius: 50%;
+}
+
 .icon {
   fill: $white;
   height: $nav-icon-height;
   width: $nav-icon-height;
+}
+
+.social {
+  fill: $white;
+  max-width: 80px;
+  max-height: 80px;
+  background-color: $color-primary;
+  padding: 1.2rem;
+  border-radius: 50%;
 }
 
 #bell {
@@ -9,11 +23,6 @@
   width: 35px;
   margin-left: auto;
   padding: 0;
-}
-
-.profile-pic {
-  max-width: 45px;
-  border-radius: 50%;
 }
 
 .bell {
