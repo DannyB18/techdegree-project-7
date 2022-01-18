@@ -1,7 +1,21 @@
 .chart {
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   margin: auto;
   width: 90%;
+  #traffic & {
+    padding-top: 0;
+  }
+}
+
+.range {
+  height: 3rem;
+  margin: 0.5rem 1rem 1rem;
+  button {
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    border-radius: 25px;
+    font-weight: 600;
+  }
 }
 
 #userChart {
@@ -9,6 +23,27 @@
 }
 
 .social-card {
+  display: flex;
+  flex-direction: row;
   background-color: $color-card;
+  padding: 20px;
   border: $divide-line;
+  border-radius: 7px;
+  margin: 20px;
+  h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-primary;
+  }
+  span {
+    line-height: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #777;
+  }
+}
+
+.social-numbers {
+  margin-left: 20px;
 }
