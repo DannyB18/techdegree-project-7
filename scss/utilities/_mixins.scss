@@ -1,3 +1,9 @@
 /* =========================
     Mixins
 ========================= */
+
+@mixin roundedBox($bg-color, $text-color: null) {
+  color: $text-color;
+  background-color: $bg-color;
+  border-radius: 7px;
+}

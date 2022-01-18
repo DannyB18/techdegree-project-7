@@ -1,19 +1,9 @@
 const alertZone = document.getElementById('alert-area');
-
-alertZone.addEventListener("click", (e) => {
-    const button = e.target;
-    const alert = button.parentNode;
-    if (button.tagName === 'BUTTON' && button.textContent === 'x') {
-        alert.parentNode.removeChild(alert);
-        console.log(alert.parentNode);
-    }
-});
-
 const newMembersSection = document.getElementById('new-members');
 const memberList = newMembersSection.querySelector('.member-list');
 const recentActivitySection = document.getElementById('new-members');
 const activityList = recentActivitySection.querySelector('.member-list');
-
+const timeRange = document.querySelector('.range');
 const users = [
     {
         fullName: 'Victoria Chambers',
@@ -43,8 +33,14 @@ const createElement = (elementName, property = null, value = null) => {
     return element;
 }
 
-
-
+alertZone.addEventListener("click", (e) => {
+    const button = e.target;
+    const alert = button.parentNode;
+    if (button.tagName === 'BUTTON' && button.textContent === 'x') {
+        alert.parentNode.removeChild(alert);
+        console.log(alert.parentNode);
+    }
+});
 
 function createMemberCard(userName, picture, email, dateJoined) {
     const li = createElement('li', 'className', 'member-card');
@@ -75,4 +71,17 @@ function populateNewMemberList() {
 
 populateNewMemberList();
 
+function removeActive() {
+    for (let i = 0; i < timeRange.children.length; i++) {
+        const button = timeRange.children[i];
+        button.removeAttribute('class');
+    }
+}
 
+timeRange.addEventListener('click', (e) => {
+    const button = e.target;
+    if (button.tagName === 'BUTTON') {
+        removeActive();
+        button.className = 'active'
+    }
+});

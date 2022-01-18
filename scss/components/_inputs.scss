@@ -1,0 +1,54 @@
+.message-form {
+  margin: 0 20px;
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  @include roundedBox($color-card);
+  padding: 20px;
+  border: $divide-line;
+  margin: 0.7rem 0;
+  &:focus {
+    outline: none;
+    border: 2px solid $color-accent;
+    box-shadow: 0 0 10px $color-primary;
+  }
+  &:first-child {
+    margin-top: 1.5rem;
+  }
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  height: 10rem;
+}
+
+select {
+  max-width: 90%;
+}
+
+.btn {
+  width: 48%;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  font-weight: 200;
+  border: 0;
+  &-submit {
+    width: 100%;
+    @include roundedBox($color-primary, $white);
+  }
+  &-save {
+    @include roundedBox($color-primary, $white);
+  }
+  &-cancel {
+    @include roundedBox(grey, $white);
+  }
+}
+
+.save-cancel {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}

@@ -400,11 +400,6 @@ a:hover {
   color: #4d4c72;
 }
 
-textarea {
-  overflow: auto;
-  resize: none;
-}
-
 main {
   display: grid;
   grid-template-rows: 65px;
@@ -534,7 +529,7 @@ section {
   justify-content: space-between;
   color: #fff;
   background-color: #7477bf;
-  border-radius: 5px;
+  border-radius: 7px;
   padding: 0.6rem 1rem;
   margin: 1rem auto;
 }
@@ -577,9 +572,9 @@ button {
   display: flex;
   flex-direction: row;
   background-color: #f5f5f5;
+  border-radius: 7px;
   padding: 20px;
   border: solid 2px lightgrey;
-  border-radius: 7px;
   margin: 20px;
 }
 .social-card h4 {
@@ -602,6 +597,7 @@ button {
 .member-list {
   list-style: none;
   padding: 0;
+  margin-bottom: 1.5rem;
 }
 
 .member-card {
@@ -630,6 +626,68 @@ button {
   margin: 0;
   text-align: center;
   line-height: 1.1;
+}
+
+.message-form {
+  margin: 0 20px;
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  background-color: #f5f5f5;
+  border-radius: 7px;
+  padding: 20px;
+  border: solid 2px lightgrey;
+  margin: 0.7rem 0;
+}
+.input-field:focus {
+  outline: none;
+  border: 2px solid #4d4c72;
+  box-shadow: 0 0 10px #7477bf;
+}
+.input-field:first-child {
+  margin-top: 1.5rem;
+}
+
+textarea {
+  overflow: auto;
+  resize: none;
+  height: 10rem;
+}
+
+select {
+  max-width: 90%;
+}
+
+.btn {
+  width: 48%;
+  height: 3.5rem;
+  font-size: 1.2rem;
+  font-weight: 200;
+  border: 0;
+}
+.btn-submit {
+  width: 100%;
+  color: #fff;
+  background-color: #7477bf;
+  border-radius: 7px;
+}
+.btn-save {
+  color: #fff;
+  background-color: #7477bf;
+  border-radius: 7px;
+}
+.btn-cancel {
+  color: #fff;
+  background-color: grey;
+  border-radius: 7px;
+}
+
+.save-cancel {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
 }
 
 /*# sourceMappingURL=styles.css.map */
