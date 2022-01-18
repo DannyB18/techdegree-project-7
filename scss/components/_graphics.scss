@@ -1,6 +1,9 @@
-.profile-pic {
-  max-width: 45px;
+.user-pic {
+  max-width: 80px;
   border-radius: 50%;
+  #profile & {
+    max-width: 45px;
+  }
 }
 
 .icon {

@@ -8,3 +8,71 @@ alertZone.addEventListener("click", (e) => {
         console.log(alert.parentNode);
     }
 });
+
+const newMembersSection = document.getElementById('new-members');
+const memberList = newMembersSection.querySelector('.member-list');
+const recentActivitySection = document.getElementById('new-members');
+const activityList = recentActivitySection.querySelector('.member-list');
+
+const users = [
+    {
+        fullName: 'Victoria Chambers',
+        picture: 'images/member-1.jpg',
+        email: 'victoria.chambers80@example.com',
+        dateJoined: '10/15/20'},
+    {
+        fullName: 'Dale Byrd',
+        picture: 'images/member-2.jpg',
+        email: 'dale.byrd52@example.com',
+        dateJoined: '10/15/20'},
+    {
+        fullName: 'Dawn Wood',
+        picture: 'images/member-3.jpg',
+        email: 'dawn.wood16@example.com',
+        dateJoined: '10/15/20'},
+    {
+        fullName: 'Dan Oliver',
+        picture: 'images/member-4.jpg',
+        email: 'dan.oliver82@example.com',
+        dateJoined: '10/15/20'},
+];
+
+const createElement = (elementName, property = null, value = null) => {
+    const element = document.createElement(elementName);
+    element[property] = value;
+    return element;
+}
+
+
+
+
+function createMemberCard(userName, picture, email, dateJoined) {
+    const li = createElement('li', 'className', 'member-card');
+    const img = createElement('img', 'className', 'user-pic');
+    const user = createElement('span', 'textContent', userName)
+    const emailAddress = createElement('a', 'textContent', email)
+    img.setAttribute('src', picture);
+    img.setAttribute('alt', `Profile picture of ${userName}`)
+    const joinDate = createElement('span', 'textContent', dateJoined);
+    li.appendChild(img);
+    li.appendChild(user);
+    li.appendChild(emailAddress);
+    li.appendChild(joinDate)
+    return li;
+}
+
+function populateNewMemberList() {
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        const userName = user.fullName;
+        const picture = user.picture;
+        const email = user.email;
+        const dateJoined = user.dateJoined;
+        const li = createMemberCard(userName, picture, email, dateJoined)
+        memberList.appendChild(li);
+    }
+}
+
+populateNewMemberList();
+
+
