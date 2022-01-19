@@ -553,11 +553,10 @@ button {
   width: 90%;
 }
 #traffic .chart {
-  padding-top: 0;
+  padding-top: 0px;
 }
 
 .range {
-  height: 3rem;
   margin: 0.5rem 1rem 1rem;
 }
 .range button {
