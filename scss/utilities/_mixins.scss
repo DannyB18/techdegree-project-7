@@ -7,3 +7,9 @@
   background-color: $bg-color;
   border-radius: 7px;
 }
+
+@mixin focusBox {
+  outline: none;
+  border: 2px solid $color-accent;
+  box-shadow: 0 0 10px $color-primary;
+}
