@@ -7,6 +7,13 @@
   }
 }
 
+#traffic {
+  @include flexBox(flex, column);
+  @include mq("med") {
+    @include flexBox(flex, row, space-between, $wrap: wrap);
+  }
+}
+
 .range {
   margin: 0.5rem 1rem 1rem;
   button {

@@ -82,6 +82,9 @@ select {
   max-width: 120px;
   margin: 15px $gap;
   margin-left: auto;
+  @include mq("med") {
+    margin-right: 50%;
+  }
 }
 
 .switch {

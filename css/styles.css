@@ -624,6 +624,19 @@ button {
   padding-top: 0px;
 }
 
+#traffic {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  #traffic {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
 .range {
   margin: 0.5rem 1rem 1rem;
 }
@@ -876,6 +889,11 @@ select:focus {
   max-width: 120px;
   margin: 15px 20px;
   margin-left: auto;
+}
+@media (min-width: 768px) {
+  .switch-container {
+    margin-right: 50%;
+  }
 }
 
 .switch {
