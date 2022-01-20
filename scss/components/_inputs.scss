@@ -1,4 +1,5 @@
-.message-form {
+.message-form,
+.settings {
   margin: 0 $gap;
   margin-bottom: 1.5rem;
 }
@@ -26,7 +27,9 @@ textarea {
 .save-cancel {
   display: flex;
   justify-content: space-between;
-  margin: 0 $gap;
+  @include mq("lg") {
+    margin-top: 26px;
+  }
 }
 
 .btn {
@@ -51,10 +54,6 @@ textarea {
   }
 }
 
-.drop-down {
-  margin: 0 $gap;
-}
-
 select {
   width: 100%;
   height: 4rem;
@@ -66,13 +65,15 @@ select {
   &:focus {
     @include focusBox;
   }
+  @include mq("lg") {
+    margin-top: 20px;
+  }
 }
 
 .setting-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: $gap;
   &:first-of-type {
     margin-top: 15px;
   }
@@ -84,6 +85,9 @@ select {
   margin-left: auto;
   @include mq("med") {
     margin-right: 50%;
+  }
+  @include mq("lg") {
+    margin-right: 30%;
   }
 }
 
@@ -109,7 +113,6 @@ select {
   background-color: grey;
   border: 3px solid lightgrey;
   border-radius: 34px;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
   &::before {
     position: absolute;
@@ -121,7 +124,6 @@ select {
     background-color: $white;
     border: $divide-line;
     border-radius: 50%;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
   }
   &::after {
@@ -136,8 +138,6 @@ select {
 input:checked + .slider {
   background-color: $color-primary;
   &:before {
-    -webkit-transform: translateX(73px);
-    -ms-transform: translateX(73px);
     transform: translateX(73px);
   }
   &:after {

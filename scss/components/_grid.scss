@@ -1,7 +1,7 @@
 main {
   display: grid;
   grid-template-rows: 65px;
-  grid-auto-rows: minmax(1fr, auto);
+  grid-auto-rows: auto;
   grid-template-areas:
     "nav"
     "tabs"
@@ -28,6 +28,16 @@ main {
       "nav message message"
       "nav settings settings";
   }
+  @include mq("lg") {
+    grid-template-areas:
+      "nav tabs tabs"
+      "nav alerts alerts"
+      "nav traffic traffic"
+      "nav daily-traffic mobile-users"
+      "nav social-stats social-stats"
+      "nav new-members recent-activity"
+      "nav message settings";
+  }
 }
 
 section {
@@ -35,10 +45,22 @@ section {
   &:last-of-type {
     padding-bottom: 30px;
   }
+  @include mq("lg") {
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
 }
 
 #mobile-users {
   @include mq("med") {
+    border-left: $divide-line;
+  }
+}
+
+#recent-activity,
+#settings {
+  @include mq("lg") {
     border-left: $divide-line;
   }
 }

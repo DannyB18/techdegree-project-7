@@ -73,6 +73,10 @@
       font-size: 1.1rem;
     }
   }
+  @include mq("lg") {
+    padding: $gap;
+    justify-content: flex-start;
+  }
 }
 
 .social-icon {
@@ -89,9 +93,16 @@
     padding: 0.9rem;
     margin-right: 10px;
   }
+  @include mq("lg") {
+    width: 80px;
+    height: 80px;
+    padding: 1.2rem;
+    margin-right: $gap;
+  }
 }
 
 .member-list {
+  @include flexBox(flex, column);
   list-style: none;
   padding: 0;
   margin-bottom: 1.5rem;
@@ -102,6 +113,7 @@
   padding: 1.5rem 0;
   border-bottom: $divide-line;
   margin: auto;
+  flex: 1 1 0;
   @include flexBox(flex, column, center, center);
   .user-info,
   .status {
@@ -143,6 +155,16 @@
         text-align: left;
         width: 100%;
       }
+    }
+  }
+  @include mq("lg") {
+    padding: 0;
+    p {
+      font-size: 0.9rem;
+    }
+    span {
+      font-size: 0.9rem;
+      // line-height: 0.9rem;
     }
   }
 }

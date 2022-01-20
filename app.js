@@ -30,13 +30,13 @@ const actions = {
     post: 'posted',
     like: 'liked the post',
     comment: 'commented on'
-}
+};
 
 const createElement = (elementName, property = null, value = null) => {
     const element = document.createElement(elementName);
     element[property] = value;
     return element;
-}
+};
 
 alertZone.addEventListener("click", (e) => {
     const button = e.target;
@@ -50,7 +50,7 @@ function memberCardPicture(userName, picture) {
     const li = createElement('li', 'className', 'member-card');
     const img = createElement('img', 'className', 'user-pic');
     img.setAttribute('src', picture);
-    img.setAttribute('alt', `Profile picture of ${userName}`)
+    img.setAttribute('alt', `Profile picture of ${userName}`);
     li.appendChild(img);
     return li;
 }
@@ -58,13 +58,13 @@ function memberCardPicture(userName, picture) {
 function createNewMemberCard(userName, picture, email, dateJoined) {
     const li = memberCardPicture(userName, picture);
     const user = createElement('p', 'textContent', userName);
-    const emailAddress = createElement('a', 'textContent', email)
+    const emailAddress = createElement('a', 'textContent', email);
     const userInfo = createElement('div', 'className', 'user-info');
     const joinDate = createElement('p', 'textContent', dateJoined);
     userInfo.appendChild(user);
     userInfo.appendChild(emailAddress);
     li.appendChild(userInfo);
-    li.appendChild(joinDate)
+    li.appendChild(joinDate);
     console.log(li);
     return li;
 }
@@ -76,17 +76,17 @@ function populateNewMemberList() {
         const picture = user.picture;
         const email = user.email;
         const dateJoined = user.dateJoined;
-        const li = createNewMemberCard(userName, picture, email, dateJoined)
+        const li = createNewMemberCard(userName, picture, email, dateJoined);
         memberList.appendChild(li);
     }
 }
 
 populateNewMemberList();
 
-function statusUpdate(name, action, post, timeAgo) {
+function statusUpdate(userName, action, post, timeAgo) {
     const status = createElement('div', 'className', 'status');
     const p = createElement('p');
-    p.innerHTML = `${name} ${action} <strong>${post}</strong>`
+    p.innerHTML = `${userName} ${action} <strong>${post}</strong>`;
     const span = createElement('span', 'textContent', timeAgo);
     status.appendChild(p);
     status.appendChild(span);
@@ -94,20 +94,20 @@ function statusUpdate(name, action, post, timeAgo) {
 }
 
 const statusUpdates = [
-    statusUpdate(name, actions.comment, "WebApp's SEO Tips", '4 hours ago'),
-    statusUpdate(name, actions.like, "Facebook's changes for 2021", '5 hours ago'),
-    statusUpdate(name, actions.comment, "Facebook's changes for 2021", '5 hours ago'),
-    statusUpdate(name, actions.post, "WebApp's SEO Tips", '1 day ago')
-]
+    statusUpdate('Victoria Chambers', actions.comment, "WebApp's SEO Tips", '4 hours ago'),
+    statusUpdate('Dale Byrd', actions.like, "Facebook's changes for 2021", '5 hours ago'),
+    statusUpdate('Dawn Wood', actions.comment, "Facebook's changes for 2021", '5 hours ago'),
+    statusUpdate('Dan Oliver', actions.post, "WebApp's SEO Tips", '1 day ago')
+];
 
 function populateActivityList() {
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
-        let status = statusUpdates[i]
+        let status = statusUpdates[i];
         const userName = user.fullName;
         const picture = user.picture;
         const button = createElement('button', 'textContent', '>');
-        const li = memberCardPicture(userName, picture)
+        const li = memberCardPicture(userName, picture);
         li.appendChild(status);
         li.appendChild(button);
         activityList.appendChild(li);
@@ -127,6 +127,6 @@ timeRange.addEventListener('click', (e) => {
     const button = e.target;
     if (button.tagName === 'BUTTON') {
         removeActive();
-        button.className = 'active'
+        button.className = 'active';
     }
 });

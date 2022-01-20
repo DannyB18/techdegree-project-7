@@ -4,6 +4,9 @@
   #profile & {
     max-width: 45px;
   }
+  @include mq("lg") {
+    max-width: 60px;
+  }
 }
 
 .icon {

@@ -403,7 +403,7 @@ a:hover {
 main {
   display: grid;
   grid-template-rows: 65px;
-  grid-auto-rows: minmax(1fr, auto);
+  grid-auto-rows: auto;
   grid-template-areas: "nav" "tabs" "alerts" "traffic" "daily-traffic" "mobile-users" "social-stats" "new-members" "recent-activity" "message" "settings";
 }
 @media (min-width: 768px) {
@@ -413,6 +413,11 @@ main {
     grid-template-areas: "nav tabs tabs" "nav alerts alerts" "nav traffic traffic" "nav daily-traffic mobile-users" "nav social-stats social-stats" "nav new-members new-members" "nav recent-activity recent-activity" "nav message message" "nav settings settings";
   }
 }
+@media (min-width: 1024px) {
+  main {
+    grid-template-areas: "nav tabs tabs" "nav alerts alerts" "nav traffic traffic" "nav daily-traffic mobile-users" "nav social-stats social-stats" "nav new-members recent-activity" "nav message settings";
+  }
+}
 
 section {
   border-bottom: solid 2px lightgrey;
@@ -420,9 +425,21 @@ section {
 section:last-of-type {
   padding-bottom: 30px;
 }
+@media (min-width: 1024px) {
+  section:last-of-type {
+    padding-bottom: 0;
+  }
+}
 
 @media (min-width: 768px) {
   #mobile-users {
+    border-left: solid 2px lightgrey;
+  }
+}
+
+@media (min-width: 1024px) {
+  #recent-activity,
+#settings {
     border-left: solid 2px lightgrey;
   }
 }
@@ -542,6 +559,11 @@ section:last-of-type {
 }
 #profile .user-pic {
   max-width: 45px;
+}
+@media (min-width: 1024px) {
+  .user-pic {
+    max-width: 60px;
+  }
 }
 
 .icon {
@@ -705,6 +727,12 @@ button {
     font-size: 1.1rem;
   }
 }
+@media (min-width: 1024px) {
+  .social-card {
+    padding: 20px;
+    justify-content: flex-start;
+  }
+}
 
 .social-icon {
   fill: #fff;
@@ -723,8 +751,18 @@ button {
     margin-right: 10px;
   }
 }
+@media (min-width: 1024px) {
+  .social-icon {
+    width: 80px;
+    height: 80px;
+    padding: 1.2rem;
+    margin-right: 20px;
+  }
+}
 
 .member-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   padding: 0;
   margin-bottom: 1.5rem;
@@ -735,6 +773,7 @@ button {
   padding: 1.5rem 0;
   border-bottom: solid 2px lightgrey;
   margin: auto;
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -790,8 +829,20 @@ button {
     width: 100%;
   }
 }
+@media (min-width: 1024px) {
+  .member-card {
+    padding: 0;
+  }
+  .member-card p {
+    font-size: 0.9rem;
+  }
+  .member-card span {
+    font-size: 0.9rem;
+  }
+}
 
-.message-form {
+.message-form,
+.settings {
   margin: 0 20px;
   margin-bottom: 1.5rem;
 }
@@ -822,7 +873,11 @@ textarea {
 .save-cancel {
   display: flex;
   justify-content: space-between;
-  margin: 0 20px;
+}
+@media (min-width: 1024px) {
+  .save-cancel {
+    margin-top: 26px;
+  }
 }
 
 .btn {
@@ -855,10 +910,6 @@ textarea {
   box-shadow: 0 0 10px #7477bf;
 }
 
-.drop-down {
-  margin: 0 20px;
-}
-
 select {
   width: 100%;
   height: 4rem;
@@ -874,12 +925,16 @@ select:focus {
   border: 2px solid #4d4c72;
   box-shadow: 0 0 10px #7477bf;
 }
+@media (min-width: 1024px) {
+  select {
+    margin-top: 20px;
+  }
+}
 
 .setting-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 20px;
 }
 .setting-container:first-of-type {
   margin-top: 15px;
@@ -893,6 +948,11 @@ select:focus {
 @media (min-width: 768px) {
   .switch-container {
     margin-right: 50%;
+  }
+}
+@media (min-width: 1024px) {
+  .switch-container {
+    margin-right: 30%;
   }
 }
 
@@ -918,7 +978,6 @@ select:focus {
   background-color: grey;
   border: 3px solid lightgrey;
   border-radius: 34px;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 .slider::before {
@@ -931,7 +990,6 @@ select:focus {
   background-color: #fff;
   border: solid 2px lightgrey;
   border-radius: 50%;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 .slider::after {
@@ -946,8 +1004,6 @@ input:checked + .slider {
   background-color: #7477bf;
 }
 input:checked + .slider:before {
-  -webkit-transform: translateX(73px);
-  -ms-transform: translateX(73px);
   transform: translateX(73px);
 }
 input:checked + .slider:after {
