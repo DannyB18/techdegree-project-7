@@ -1,12 +1,12 @@
 .message-form {
-  margin: 0 20px;
+  margin: 0 $gap;
   margin-bottom: 1.5rem;
 }
 
 .input-field {
   width: 100%;
   @include roundedBox($color-card);
-  padding: 20px;
+  padding: $gap;
   border: $divide-line;
   margin: 0.7rem 0;
   &:focus {
@@ -26,7 +26,7 @@ textarea {
 .save-cancel {
   display: flex;
   justify-content: space-between;
-  margin: 0 20px;
+  margin: 0 $gap;
 }
 
 .btn {
@@ -37,6 +37,7 @@ textarea {
   border: 0;
   &-submit {
     width: 100%;
+    margin-top: 10px;
     @include roundedBox($color-primary, $white);
   }
   &-save {
@@ -51,7 +52,7 @@ textarea {
 }
 
 .drop-down {
-  margin: 0 20px;
+  margin: 0 $gap;
 }
 
 select {
@@ -60,7 +61,7 @@ select {
   font-size: 1.1rem;
   padding: 1rem;
   border: $divide-line;
-  margin: 20px 0;
+  margin: $gap 0;
   @include roundedBox($color-card);
   &:focus {
     @include focusBox;
@@ -71,7 +72,7 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 20px;
+  margin-left: $gap;
   &:first-of-type {
     margin-top: 15px;
   }
@@ -79,7 +80,7 @@ select {
 
 .switch-container {
   max-width: 120px;
-  margin: 15px 20px;
+  margin: 15px $gap;
   margin-left: auto;
 }
 

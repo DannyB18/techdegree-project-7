@@ -2,9 +2,7 @@
 .main-nav,
 .nav-item,
 #profile {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  @include flexBox(flex, null, space-around, center);
 }
 
 .banner {
@@ -15,10 +13,17 @@
 .main-nav {
   background-color: $color-accent;
   padding: 0.8em 3em;
+  @include mq("med") {
+    padding: 0;
+    @include flexBox(initial, column, center, flex-start);
+  }
 }
 
 .nav-item a {
   max-height: $nav-icon-height;
+  @include mq("med") {
+    margin-top: 30px;
+  }
 }
 
 #profile {

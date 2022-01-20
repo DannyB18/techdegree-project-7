@@ -2,6 +2,13 @@
     Mixins
 ========================= */
 
+@mixin flexBox($disp: null, $dir: null, $just: null, $align: null) {
+  display: $disp;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
+
 @mixin roundedBox($bg-color, $text-color: null) {
   color: $text-color;
   background-color: $bg-color;
@@ -12,4 +19,11 @@
   outline: none;
   border: 2px solid $color-accent;
   box-shadow: 0 0 10px $color-primary;
+}
+
+@mixin mq($break) {
+  $value: map-get($breakpoints, $break);
+  @media (min-width: $value) {
+    @content;
+  }
 }

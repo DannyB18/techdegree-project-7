@@ -1,14 +1,18 @@
 .alert {
-  display: flex;
-  max-width: 90%;
+  @include flexBox(flex, $just: space-between);
   font-size: 1.1rem;
   font-weight: 200;
-  justify-content: space-between;
   @include roundedBox($color-primary, $white);
   padding: 0.6rem 1rem;
-  margin: 1rem auto;
+  margin: 0.5rem $gap;
   p {
     margin: 0;
+  }
+  &:first-child {
+    margin-top: 1rem;
+  }
+  &:last-child {
+    margin-bottom: 1rem;
   }
 }
 

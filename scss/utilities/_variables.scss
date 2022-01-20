@@ -11,4 +11,10 @@ $color-card: #f5f5f5;
 $white: #fff;
 $divide-line: solid 2px lightgrey;
 
+$gap: 20px;
 $nav-icon-height: 35px;
+
+$breakpoints: (
+  "med": 768px,
+  "lg": 1024px,
+);

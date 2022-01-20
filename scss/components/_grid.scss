@@ -2,6 +2,32 @@ main {
   display: grid;
   grid-template-rows: 65px;
   grid-auto-rows: minmax(1fr, auto);
+  grid-template-areas:
+    "nav"
+    "tabs"
+    "alerts"
+    "traffic"
+    "daily-traffic"
+    "mobile-users"
+    "social-stats"
+    "new-members"
+    "recent-activity"
+    "message"
+    "settings";
+  @include mq("med") {
+    grid-template-columns: 65px 1fr 1fr;
+    grid-template-rows: 65px repeat(auto-fit, 1fr);
+    grid-template-areas:
+      "nav tabs tabs"
+      "nav alerts alerts"
+      "nav traffic traffic"
+      "nav daily-traffic mobile-users"
+      "nav social-stats social-stats"
+      "nav new-members new-members"
+      "nav recent-activity recent-activity"
+      "nav message message"
+      "nav settings settings";
+  }
 }
 
 section {
@@ -9,4 +35,44 @@ section {
   &:last-of-type {
     padding-bottom: 30px;
   }
+}
+
+#mobile-users {
+  @include mq("med") {
+    border-left: $divide-line;
+  }
+}
+
+.main-nav {
+  grid-area: nav;
+}
+.tab-slots {
+  grid-area: tabs;
+}
+#alert-area {
+  grid-area: alerts;
+}
+#traffic {
+  grid-area: traffic;
+}
+#daily-traffic {
+  grid-area: daily-traffic;
+}
+#mobile-users {
+  grid-area: mobile-users;
+}
+#social-stats {
+  grid-area: social-stats;
+}
+#new-members {
+  grid-area: new-members;
+}
+#recent-activity {
+  grid-area: recent-activity;
+}
+#message {
+  grid-area: message;
+}
+#settings {
+  grid-area: settings;
 }

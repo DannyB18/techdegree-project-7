@@ -1,7 +1,7 @@
 const alertZone = document.getElementById('alert-area');
 const newMembersSection = document.getElementById('new-members');
 const memberList = newMembersSection.querySelector('.member-list');
-const recentActivitySection = document.getElementById('new-members');
+const recentActivitySection = document.getElementById('recent-activity');
 const activityList = recentActivitySection.querySelector('.member-list');
 const timeRange = document.querySelector('.range');
 const users = [
@@ -26,6 +26,11 @@ const users = [
         email: 'dan.oliver82@example.com',
         dateJoined: '10/15/20'},
 ];
+const actions = {
+    post: 'posted',
+    like: 'liked the post',
+    comment: 'commented on'
+}
 
 const createElement = (elementName, property = null, value = null) => {
     const element = document.createElement(elementName);
@@ -41,18 +46,26 @@ alertZone.addEventListener("click", (e) => {
     }
 });
 
-function createMemberCard(userName, picture, email, dateJoined) {
+function memberCardPicture(userName, picture) {
     const li = createElement('li', 'className', 'member-card');
     const img = createElement('img', 'className', 'user-pic');
-    const user = createElement('span', 'textContent', userName)
-    const emailAddress = createElement('a', 'textContent', email)
     img.setAttribute('src', picture);
     img.setAttribute('alt', `Profile picture of ${userName}`)
-    const joinDate = createElement('span', 'textContent', dateJoined);
     li.appendChild(img);
-    li.appendChild(user);
-    li.appendChild(emailAddress);
+    return li;
+}
+
+function createNewMemberCard(userName, picture, email, dateJoined) {
+    const li = memberCardPicture(userName, picture);
+    const user = createElement('p', 'textContent', userName);
+    const emailAddress = createElement('a', 'textContent', email)
+    const userInfo = createElement('div', 'className', 'user-info');
+    const joinDate = createElement('p', 'textContent', dateJoined);
+    userInfo.appendChild(user);
+    userInfo.appendChild(emailAddress);
+    li.appendChild(userInfo);
     li.appendChild(joinDate)
+    console.log(li);
     return li;
 }
 
@@ -63,12 +76,45 @@ function populateNewMemberList() {
         const picture = user.picture;
         const email = user.email;
         const dateJoined = user.dateJoined;
-        const li = createMemberCard(userName, picture, email, dateJoined)
+        const li = createNewMemberCard(userName, picture, email, dateJoined)
         memberList.appendChild(li);
     }
 }
 
 populateNewMemberList();
+
+function statusUpdate(name, action, post, timeAgo) {
+    const status = createElement('div', 'className', 'status');
+    const p = createElement('p');
+    p.innerHTML = `${name} ${action} <strong>${post}</strong>`
+    const span = createElement('span', 'textContent', timeAgo);
+    status.appendChild(p);
+    status.appendChild(span);
+    return status;
+}
+
+const statusUpdates = [
+    statusUpdate(name, actions.comment, "WebApp's SEO Tips", '4 hours ago'),
+    statusUpdate(name, actions.like, "Facebook's changes for 2021", '5 hours ago'),
+    statusUpdate(name, actions.comment, "Facebook's changes for 2021", '5 hours ago'),
+    statusUpdate(name, actions.post, "WebApp's SEO Tips", '1 day ago')
+]
+
+function populateActivityList() {
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        let status = statusUpdates[i]
+        const userName = user.fullName;
+        const picture = user.picture;
+        const button = createElement('button', 'textContent', '>');
+        const li = memberCardPicture(userName, picture)
+        li.appendChild(status);
+        li.appendChild(button);
+        activityList.appendChild(li);
+    }
+}
+populateActivityList();
+
 
 function removeActive() {
     for (let i = 0; i < timeRange.children.length; i++) {

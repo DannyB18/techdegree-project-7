@@ -19,15 +19,23 @@
 
 #userChart {
   max-height: 175px;
+  @include mq("med") {
+    max-height: 150px;
+  }
+}
+
+.social-widget {
+  @include mq("med") {
+    @include flexBox(flex, row);
+  }
 }
 
 .social-card {
-  display: flex;
-  flex-direction: row;
+  @include flexBox(flex, row, $align: center);
   @include roundedBox($color-card);
-  padding: 20px;
+  padding: $gap;
   border: $divide-line;
-  margin: 20px;
+  margin: $gap;
   h4 {
     font-size: 1.3rem;
     font-weight: 600;
@@ -35,15 +43,45 @@
   }
   span {
     line-height: 3rem;
-    height: 3rem;
     font-size: 3rem;
     font-weight: 300;
     color: #777;
   }
+  @include mq("med") {
+    width: 33%;
+    max-width: 33%;
+    padding: 10px;
+    margin: $gap 5px;
+    justify-content: space-around;
+    &:first-child {
+      margin-left: $gap;
+    }
+    &:last-child {
+      margin-right: $gap;
+    }
+    span {
+      font-size: 2.3rem;
+    }
+    h4 {
+      font-size: 1.1rem;
+    }
+  }
 }
 
-.social-numbers {
-  margin-left: 20px;
+.social-icon {
+  fill: $white;
+  width: 80px;
+  height: 80px;
+  background-color: $color-primary;
+  padding: 1.2rem;
+  border-radius: 50%;
+  margin-right: $gap;
+  @include mq("med") {
+    width: 60px;
+    height: 60px;
+    padding: 0.9rem;
+    margin-right: 10px;
+  }
 }
 
 .member-list {
@@ -57,9 +95,11 @@
   padding: 1.5rem 0;
   border-bottom: $divide-line;
   margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flexBox(flex, column, center, center);
+  .user-info,
+  .status {
+    @include flexBox(flex, column, $align: center);
+  }
   &:last-child {
     border-bottom: 0;
     padding-bottom: 0;
@@ -67,15 +107,35 @@
   img {
     margin-bottom: 0.2rem;
   }
-  span {
-    height: 1.1rem;
-  }
-  a {
-    height: 1.1rem;
-  }
   p {
-    margin: 0;
+    width: 90%;
+    margin: 2px 0 0;
     text-align: center;
     line-height: 1.1;
+  }
+  button {
+    display: none;
+  }
+  @include mq("med") {
+    @include flexBox($dir: row, $just: flex-start);
+    p {
+      text-align: right;
+    }
+    button {
+      display: initial;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: grey;
+    }
+    .user-info,
+    .status {
+      @include flexBox(flex, column, $align: flex-start);
+      margin: $gap;
+      flex-grow: 1;
+      p {
+        text-align: left;
+        width: 100%;
+      }
+    }
   }
 }

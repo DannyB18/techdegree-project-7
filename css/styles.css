@@ -404,6 +404,14 @@ main {
   display: grid;
   grid-template-rows: 65px;
   grid-auto-rows: minmax(1fr, auto);
+  grid-template-areas: "nav" "tabs" "alerts" "traffic" "daily-traffic" "mobile-users" "social-stats" "new-members" "recent-activity" "message" "settings";
+}
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: 65px 1fr 1fr;
+    grid-template-rows: 65px repeat(auto-fit, 1fr);
+    grid-template-areas: "nav tabs tabs" "nav alerts alerts" "nav traffic traffic" "nav daily-traffic mobile-users" "nav social-stats social-stats" "nav new-members new-members" "nav recent-activity recent-activity" "nav message message" "nav settings settings";
+  }
 }
 
 section {
@@ -411,6 +419,56 @@ section {
 }
 section:last-of-type {
   padding-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  #mobile-users {
+    border-left: solid 2px lightgrey;
+  }
+}
+
+.main-nav {
+  grid-area: nav;
+}
+
+.tab-slots {
+  grid-area: tabs;
+}
+
+#alert-area {
+  grid-area: alerts;
+}
+
+#traffic {
+  grid-area: traffic;
+}
+
+#daily-traffic {
+  grid-area: daily-traffic;
+}
+
+#mobile-users {
+  grid-area: mobile-users;
+}
+
+#social-stats {
+  grid-area: social-stats;
+}
+
+#new-members {
+  grid-area: new-members;
+}
+
+#recent-activity {
+  grid-area: recent-activity;
+}
+
+#message {
+  grid-area: message;
+}
+
+#settings {
+  grid-area: settings;
 }
 
 .banner,
@@ -431,9 +489,23 @@ section:last-of-type {
   background-color: #4d4c72;
   padding: 0.8em 3em;
 }
+@media (min-width: 768px) {
+  .main-nav {
+    padding: 0;
+    display: initial;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
 
 .nav-item a {
   max-height: 35px;
+}
+@media (min-width: 768px) {
+  .nav-item a {
+    margin-top: 30px;
+  }
 }
 
 #profile {
@@ -478,15 +550,6 @@ section:last-of-type {
   width: 35px;
 }
 
-.social-icon {
-  fill: #fff;
-  width: 80px;
-  height: 80px;
-  background-color: #7477bf;
-  padding: 1.2rem;
-  border-radius: 50%;
-}
-
 #bell {
   height: 25px;
   width: 35px;
@@ -526,18 +589,23 @@ section:last-of-type {
 
 .alert {
   display: flex;
-  max-width: 90%;
+  justify-content: space-between;
   font-size: 1.1rem;
   font-weight: 200;
-  justify-content: space-between;
   color: #fff;
   background-color: #7477bf;
   border-radius: 7px;
   padding: 0.6rem 1rem;
-  margin: 1rem auto;
+  margin: 0.5rem 20px;
 }
 .alert p {
   margin: 0;
+}
+.alert:first-child {
+  margin-top: 1rem;
+}
+.alert:last-child {
+  margin-bottom: 1rem;
 }
 
 button {
@@ -569,10 +637,23 @@ button {
 #userChart {
   max-height: 175px;
 }
+@media (min-width: 768px) {
+  #userChart {
+    max-height: 150px;
+  }
+}
+
+@media (min-width: 768px) {
+  .social-widget {
+    display: flex;
+    flex-direction: row;
+  }
+}
 
 .social-card {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: #f5f5f5;
   border-radius: 7px;
   padding: 20px;
@@ -586,14 +667,48 @@ button {
 }
 .social-card span {
   line-height: 3rem;
-  height: 3rem;
   font-size: 3rem;
   font-weight: 300;
   color: #777;
 }
+@media (min-width: 768px) {
+  .social-card {
+    width: 33%;
+    max-width: 33%;
+    padding: 10px;
+    margin: 20px 5px;
+    justify-content: space-around;
+  }
+  .social-card:first-child {
+    margin-left: 20px;
+  }
+  .social-card:last-child {
+    margin-right: 20px;
+  }
+  .social-card span {
+    font-size: 2.3rem;
+  }
+  .social-card h4 {
+    font-size: 1.1rem;
+  }
+}
 
-.social-numbers {
-  margin-left: 20px;
+.social-icon {
+  fill: #fff;
+  width: 80px;
+  height: 80px;
+  background-color: #7477bf;
+  padding: 1.2rem;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+@media (min-width: 768px) {
+  .social-icon {
+    width: 60px;
+    height: 60px;
+    padding: 0.9rem;
+    margin-right: 10px;
+  }
 }
 
 .member-list {
@@ -609,6 +724,13 @@ button {
   margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.member-card .user-info,
+.member-card .status {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .member-card:last-child {
@@ -618,16 +740,42 @@ button {
 .member-card img {
   margin-bottom: 0.2rem;
 }
-.member-card span {
-  height: 1.1rem;
-}
-.member-card a {
-  height: 1.1rem;
-}
 .member-card p {
-  margin: 0;
+  width: 90%;
+  margin: 2px 0 0;
   text-align: center;
   line-height: 1.1;
+}
+.member-card button {
+  display: none;
+}
+@media (min-width: 768px) {
+  .member-card {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .member-card p {
+    text-align: right;
+  }
+  .member-card button {
+    display: initial;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: grey;
+  }
+  .member-card .user-info,
+.member-card .status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    flex-grow: 1;
+  }
+  .member-card .user-info p,
+.member-card .status p {
+    text-align: left;
+    width: 100%;
+  }
 }
 
 .message-form {
@@ -673,6 +821,7 @@ textarea {
 }
 .btn-submit {
   width: 100%;
+  margin-top: 10px;
   color: #fff;
   background-color: #7477bf;
   border-radius: 7px;
