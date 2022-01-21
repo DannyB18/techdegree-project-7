@@ -16,16 +16,22 @@
   }
 }
 
-#notification-area {
+.notification-zone {
   position: relative;
+}
+
+#notification-area {
+  position: absolute;
   top: 20px;
-  left: 45px;
-  // background-color: $white;
-  margin-left: auto;
+  left: -100px;
+  @include mq("med") {
+    left: -260px;
+  }
 }
 
 .notification {
   @include flexBox(flex, row, space-between);
+  width: 15rem;
   color: black;
   background-color: #ebebeb;
   padding: 10px;
@@ -40,6 +46,9 @@
   }
   p {
     margin: 0;
+  }
+  @include mq("med") {
+    width: 20rem;
   }
 }
 

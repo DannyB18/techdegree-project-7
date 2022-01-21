@@ -198,7 +198,7 @@ header.addEventListener('click', (e) => {
     button = e.target;
     if (button === bellButton || button === bellSVG || button === bellPath) {
         notifDisplay();
-        moveNotifWindow();
+        // moveWindow(notificationArea.parentNode);
     }
 });
 
@@ -215,12 +215,12 @@ const divOffset = (divHeight) => {
     const totalOffset = divHeight / 2;
     return totalOffset;
 }
-function moveNotifWindow() {
-    const divHeight = notificationArea.offsetHeight;
-    const offset = divOffset(divHeight);
-    const offsetStyle = `${offset}px`;
-    notificationArea.style.transform = `translateY(${offsetStyle})`;
-}
+// function moveWindow(area) {
+//     const divHeight = area.offsetHeight;
+//     const offset = divOffset(divHeight);
+//     const offsetStyle = `${offset}px`;
+//     notificationArea.parentNode.style.transform = `translateY(${offsetStyle})`;
+// }
 
 function getNotifications() {
     while (notifList.length > 0) {
@@ -228,7 +228,7 @@ function getNotifications() {
         const notification = createNotification(notif);
         notification.classList.add('hidden');
         notificationArea.appendChild(notification);
-        moveNotifWindow();
+        // moveWindow(notificationArea.parentNode);
     }
 }
 getNotifications();
@@ -251,7 +251,7 @@ notificationArea.addEventListener("click", (e) => {
     if (button.tagName === 'BUTTON' && button.textContent === 'x') {
         const notification = button.parentNode;
         notification.parentNode.removeChild(notification);
-        moveNotifWindow();
+        // moveWindow(notificationArea);
     }
 });
 
@@ -263,6 +263,70 @@ notificationArea.addEventListener("click", (e) => {
 // Display error when empty field
 // Autocomplete search field
 
+const searchbar = document.getElementById('user-search');
+const messagefield = document.getElementById('user-message')
+const searchDrop = document.getElementById('search-dropdown');
+
+const createSearchItem = (userName) => {
+    const div = createElement('div', 'className', 'search-item');
+    const p = createElement('p', 'className', 'user');
+    p.textContent = userName;
+    div.appendChild(p);
+    return div;
+}
+
+searchbar.addEventListener('keyup', activeSearch)
+
+const clearSearchItems = () => searchDrop.innerHTML = "";
+
+function activeSearch() {
+    clearSearchItems();
+    const input = searchbar.value.toLowerCase();
+    for (let i = 0; i < users.length; i ++) {
+        const userName = users[i].fullName.toLocaleLowerCase();
+        if (userName.includes(input) && input.length > 0) {
+            const item = createSearchItem(userName);
+            searchDrop.appendChild(item);
+        }
+    }
+}
+
+searchDrop.addEventListener('click', (e) => {
+    const searchItem = e.target;
+    if (searchItem.tagName === 'DIV' && searchItem.className === 'search-item') {
+        const user = searchItem.querySelector('.user');
+        const selectedUser = user.textContent;
+        searchbar.value = selectedUser;
+    } else if (searchItem.tagName === 'P' && searchItem.className === 'user') {
+        searchbar.value = searchItem.textContent;
+    }
+    clearSearchItems();
+});
+
+const messageForm = document.getElementById('message-form');
+const sendButton = document.getElementById('submit-button');
+const messageField = document.getAnimations('user-message'); 
+
+messageForm.addEventListener ('submit', (e) => {
+    e.preventDefault();
+    if (checkInput()) {
+        sendButton.style.backgroundColor = '#50C878';
+        sendButton.textContent = "SENT";
+        searchbar.value = '';
+        messagefield.value = '';
+    }
+});
+
+function checkInput() {
+    const searchInput = searchbar.value;
+    const messageInput = messagefield.value;
+    if (searchInput.length === 0 || messageInput.length === 0) {
+        alert('Please enter valid user and message.');
+        return false;
+    } else {
+        return true;
+    }
+}
 
 // ===================================
 //      Settings Functions

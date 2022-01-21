@@ -15,7 +15,9 @@
     <header>
         <div class="banner">
             <h1><strong>Web</strong>App<sup><strong>TM</strong></sup></h1>
-            <div id="notification-area">
+            <div class="notification-zone">
+                <div id="notification-area">
+                </div>
             </div>
             <button id="notifications" class="bell-icon unchecked">
                 <svg id="bell" class="icon unchecked" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.033 122.88">
@@ -273,10 +275,17 @@
         </section>
         <section id="message">
             <h3>Message User</h3>
-            <form class="message-form">
-                <input id="user-search" class="input-field" type="search" placeholder="Search for User">
+            <form id="message-form" class="message-form">
+                <input id="user-search" class="input-field" type="search" placeholder="Search for User" autocomplete="off">
+                <div class='search-area'>
+                    <div id="search-dropdown">
+                        <!-- <div class="search-item">
+                            <p>Victoria Chambers</p>
+                        </div> -->
+                    </div>
+                </div>
                 <textarea id="user-message" class="input-field" placeholder="Message for User"></textarea>
-                <button class="btn btn-submit" type=submit value="submit">SEND</button>
+                <button id="submit-button" class="btn btn-submit" type=submit value="submit">SEND</button>
             </form>
         </section>
         <section id="settings">

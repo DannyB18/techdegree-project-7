@@ -168,3 +168,29 @@
     }
   }
 }
+
+.search-area {
+  position: relative;
+  top: -16px;
+  width: 100%;
+  &:focus {
+    display: flex;
+  }
+}
+
+#search-dropdown {
+  position: absolute;
+  width: 100%;
+}
+
+.search-item {
+  @include flexBox(flex, column, center);
+  // position: relative;
+  background-color: #eee;
+  height: 50px;
+  padding: 20px;
+  border: $divide-line;
+  &:last-of-type {
+    border-radius: 0 0 10px 10px;
+  }
+}

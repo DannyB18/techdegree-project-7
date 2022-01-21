@@ -367,6 +367,7 @@ h1 {
   font-size: 1.5em;
   font-weight: 200;
   padding: 0 10px;
+  flex-grow: 1;
 }
 h1 sup {
   font-size: 0.35em;
@@ -629,17 +630,26 @@ section:last-of-type {
   margin-bottom: 1rem;
 }
 
-#notification-area {
+.notification-zone {
   position: relative;
+}
+
+#notification-area {
+  position: absolute;
   top: 20px;
-  left: 45px;
-  margin-left: auto;
+  left: -100px;
+}
+@media (min-width: 768px) {
+  #notification-area {
+    left: -260px;
+  }
 }
 
 .notification {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 15rem;
   color: black;
   background-color: #ebebeb;
   padding: 10px;
@@ -655,6 +665,11 @@ section:last-of-type {
 }
 .notification p {
   margin: 0;
+}
+@media (min-width: 768px) {
+  .notification {
+    width: 20rem;
+  }
 }
 
 .hidden {
@@ -867,6 +882,33 @@ section:last-of-type {
   .member-card span {
     font-size: 0.9rem;
   }
+}
+
+.search-area {
+  position: relative;
+  top: -16px;
+  width: 100%;
+}
+.search-area:focus {
+  display: flex;
+}
+
+#search-dropdown {
+  position: absolute;
+  width: 100%;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #eee;
+  height: 50px;
+  padding: 20px;
+  border: solid 2px lightgrey;
+}
+.search-item:last-of-type {
+  border-radius: 0 0 10px 10px;
 }
 
 button {
