@@ -117,18 +117,62 @@ populateActivityList();
 //      Chart Interval Functions
 // ===================================
 
-function removeActive() {
+const labels = (chart) => chart.data.labels;
+const data = (chart) => chart.data.datasets[0].data;
+const labelsets = {
+    hourly: ['01-06', '07-12', '13-18', '19-00', '01-06', '07-12', '13-18', '19-00', '01-06', '07-12', '13-18'],
+    daily: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    weekly: ['11/28', '12/05', '12/12', '12/19', '12/26', '01/02', '01/09', '01/16'],
+    monthly: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+}
+const datasets = {
+    hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+    daily: [5500,3950,4250,5000,4500,6250,5750],
+    weekly: [34250,30750,32250,35750,37500,33500,34750,33000],
+    monthly: [120000, 104500, 125000, 120000, 135750, 120000],
+}
+
+function changeActive(target) {
     for (let i = 0; i < timeRange.children.length; i++) {
         const button = timeRange.children[i];
         button.removeAttribute('class');
     }
+    target.className = 'active';
+}
+
+function removeData(chart) {
+    for (let i = labels(chart).length; i > 0; i--) {
+        labels(chart).pop();
+    }
+    for (let i = data(chart).length; i > 0; i--) {
+        data(chart).pop();
+    }
+    chart.update();
+}
+
+function addData(chart, labelSet, dataSet) {
+    for (let i = 0; i < labelSet.length; i++) {
+        const label = labelSet[i];
+        labels(chart).push(label);
+    }
+    for (let i = 0; i < dataSet.length; i++) {
+        const datum = dataSet[i];
+        data(chart).push(datum);
+    }
+    chart.update();
+}
+
+function changeInterval(chart, text) {
+    removeData(chart)
+    addData(chart, labelsets[text], datasets[text]);
 }
 
 timeRange.addEventListener('click', (e) => {
     const button = e.target;
     if (button.tagName === 'BUTTON') {
-        removeActive();
-        button.className = 'active';
+        changeActive(button);
+        const text = button.textContent.toLowerCase();
+        changeInterval(trafficChart, text);
     }
 });
 
@@ -210,3 +254,20 @@ notificationArea.addEventListener("click", (e) => {
         moveNotifWindow();
     }
 });
+
+// ===================================
+//      User Message Functions
+// ===================================
+
+// Simulate message submit
+// Display error when empty field
+// Autocomplete search field
+
+
+// ===================================
+//      Settings Functions
+// ===================================
+
+// Save settings to local storage when save is clicked
+// Reset settings when reset is clicked
+// Make sure all settings are remembered when page is loaded
