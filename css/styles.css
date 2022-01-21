@@ -575,7 +575,6 @@ section:last-of-type {
 #bell {
   height: 25px;
   width: 35px;
-  margin-left: auto;
   padding: 0;
 }
 
@@ -630,11 +629,32 @@ section:last-of-type {
   margin-bottom: 1rem;
 }
 
-button {
-  font-weight: inherit;
-  color: inherit;
-  background-color: inherit;
-  border: 0;
+#notification-area {
+  position: relative;
+  top: 20px;
+  left: 45px;
+  margin-left: auto;
+}
+
+.notification {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: black;
+  background-color: #ebebeb;
+  padding: 10px;
+  border: 2px solid #51b6c8;
+  border-radius: 10px;
+  margin: 0 0 2px;
+}
+.notification:last-of-type {
+  margin-bottom: 0;
+}
+.notification button {
+  margin-left: 20px;
+}
+.notification p {
+  margin: 0;
 }
 
 .chart {
@@ -839,6 +859,13 @@ button {
   .member-card span {
     font-size: 0.9rem;
   }
+}
+
+button {
+  font-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+  border: 0;
 }
 
 .message-form,

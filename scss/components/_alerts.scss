@@ -16,9 +16,29 @@
   }
 }
 
-button {
-  font-weight: inherit;
-  color: inherit;
-  background-color: inherit;
-  border: 0;
+#notification-area {
+  position: relative;
+  top: 20px;
+  left: 45px;
+  // background-color: $white;
+  margin-left: auto;
+}
+
+.notification {
+  @include flexBox(flex, row, space-between);
+  color: black;
+  background-color: #ebebeb;
+  padding: 10px;
+  border: 2px solid $color-tertiary;
+  border-radius: 10px;
+  margin: 0 0 2px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  button {
+    margin-left: $gap;
+  }
+  p {
+    margin: 0;
+  }
 }

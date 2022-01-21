@@ -1,3 +1,10 @@
+button {
+  font-weight: inherit;
+  color: inherit;
+  background-color: inherit;
+  border: 0;
+}
+
 .message-form,
 .settings {
   margin: 0 $gap;
