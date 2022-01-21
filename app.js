@@ -46,6 +46,10 @@ alertZone.addEventListener("click", (e) => {
     }
 });
 
+// ===================================
+//      Member Card Functions
+// ===================================
+
 function memberCardPicture(userName, picture) {
     const li = createElement('li', 'className', 'member-card');
     const img = createElement('img', 'className', 'user-pic');
@@ -71,15 +75,10 @@ function createNewMemberCard(userName, picture, email, dateJoined) {
 function populateNewMemberList() {
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
-        const userName = user.fullName;
-        const picture = user.picture;
-        const email = user.email;
-        const dateJoined = user.dateJoined;
-        const li = createNewMemberCard(userName, picture, email, dateJoined);
+        const li = createNewMemberCard(user.fullName, user.picture, user.email, user.dateJoined);
         memberList.appendChild(li);
     }
 }
-
 populateNewMemberList();
 
 function statusUpdate(userName, action, post, timeAgo) {
@@ -114,6 +113,9 @@ function populateActivityList() {
 }
 populateActivityList();
 
+// ===================================
+//      Chart Interval Functions
+// ===================================
 
 function removeActive() {
     for (let i = 0; i < timeRange.children.length; i++) {
@@ -130,7 +132,11 @@ timeRange.addEventListener('click', (e) => {
     }
 });
 
-const pendingNotifications = [
+// ===================================
+//      Notification Functions
+// ===================================
+
+const notifList = [
     "You have 12 unread messages",
     "You have 3 new followers",
     "Someone commented on your post",
@@ -147,37 +153,10 @@ const bellButton = document.getElementById('notifications');
 header.addEventListener('click', (e) => {
     button = e.target;
     if (button === bellButton || button === bellSVG || button === bellPath) {
-        showNotifications();
-        for (let i = 0; i < notifications.length; i++) {
-            const notification = notifications[i];
-            console.log(notification);
-            if (notification.style === "display: flex;") {
-                notification.style = "display: none";
-            }
-        }
+        notifDisplay();
+        moveNotifWindow();
     }
 });
-
-header.addEventListener('click', (e) => {
-    button = e.target;
-    for (let i = 0; i < notifications.length; i++) {
-        const notification = notifications[i];
-        if (notification.style === "display: flex") {
-            notification.style = "display: none";
-
-        }
-    }
-});
-
-// Finish Notifications
-// Kick Notifications from array
-// iterate and display none if button is clicked while shown
-
-function classToBell(addRemove, className) {
-    bellButton.classList[addRemove](`${className}`);
-    bellSVG.classList[addRemove](`${className}`);
-    bellPath.classList[addRemove](`${className}`);
-}
 
 function createNotification(notif) {
     const div = createElement('div', 'className', 'notification');
@@ -185,25 +164,43 @@ function createNotification(notif) {
     const button = createElement('button', 'textContent', 'x');
     div.appendChild(p);
     div.appendChild(button);
-    div.style = "display: none"
     return div;
 }
-function showNotifications() {
-    for (let i = 0; i < pendingNotifications.length; i++) {
-        const notif = createNotification(pendingNotifications[i]);
-        notificationArea.appendChild(notif);
-        notif.style = "display: flex";
+
+const divOffset = (divHeight) => {
+    const totalOffset = divHeight / 2;
+    return totalOffset;
+}
+function moveNotifWindow() {
+    const divHeight = notificationArea.offsetHeight;
+    const offset = divOffset(divHeight);
+    const offsetStyle = `${offset}px`;
+    notificationArea.style.transform = `translateY(${offsetStyle})`;
+}
+
+function getNotifications() {
+    while (notifList.length > 0) {
+        const notif = notifList.shift();
+        const notification = createNotification(notif);
+        notification.classList.add('hidden');
+        notificationArea.appendChild(notification);
         moveNotifWindow();
     }
 }
+getNotifications();
 
-function hideNotifications() {
-    for (let i = 0; i < pendingNotifications.length; i++) {
-        const notification = pendingNotifications[i];
-        notification.style = "display: none";
+function notifDisplay() {
+    for (let i = 0; i < notifications.length; i++) {
+        const notification = notifications[i];
+        if (notification.classList.contains('show')) {
+            notification.classList.remove('show');
+            notification.classList.add('hidden');
+        } else if (notification.classList.contains('hidden')) {
+            notification.classList.remove('hidden');
+            notification.classList.add('show');
+        }
     }
 }
-
 
 notificationArea.addEventListener("click", (e) => {
     const button = e.target;
@@ -213,15 +210,3 @@ notificationArea.addEventListener("click", (e) => {
         moveNotifWindow();
     }
 });
-
-const divOffset = (divHeight) => {
-    const totalOffset = divHeight / 2;
-    return totalOffset;
-}
-
-function moveNotifWindow() {
-    const divHeight = notificationArea.offsetHeight;
-    const offset = divOffset(divHeight);
-    const offsetStyle = `${offset}px`;
-    notificationArea.style.transform = `translateY(${offsetStyle})`;
-}

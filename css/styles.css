@@ -657,6 +657,14 @@ section:last-of-type {
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
 .chart {
   padding: 2rem 0;
   margin: auto;
