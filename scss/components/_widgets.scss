@@ -170,7 +170,6 @@
     }
     span {
       font-size: 0.9rem;
-      // line-height: 0.9rem;
     }
   }
 }
@@ -191,7 +190,6 @@
 
 .search-item {
   @include flexBox(flex, column, center);
-  // position: relative;
   background-color: #eee;
   height: 50px;
   padding: 20px;

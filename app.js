@@ -198,7 +198,6 @@ header.addEventListener('click', (e) => {
     button = e.target;
     if (button === bellButton || button === bellSVG || button === bellPath) {
         notifDisplay();
-        // moveWindow(notificationArea.parentNode);
     }
 });
 
@@ -211,24 +210,12 @@ function createNotification(notif) {
     return div;
 }
 
-// const divOffset = (divHeight) => {
-//     const totalOffset = divHeight / 2;
-//     return totalOffset;
-// };
-// function moveWindow(area) {
-//     const divHeight = area.offsetHeight;
-//     const offset = divOffset(divHeight);
-//     const offsetStyle = `${offset}px`;
-//     notificationArea.parentNode.style.transform = `translateY(${offsetStyle})`;
-// }
-
 function getNotifications() {
     while (notifList.length > 0) {
         const notif = notifList.shift();
         const notification = createNotification(notif);
         notification.classList.add('hidden');
         notificationArea.appendChild(notification);
-        // moveWindow(notificationArea.parentNode);
     }
 }
 getNotifications();
@@ -251,7 +238,6 @@ notificationArea.addEventListener("click", (e) => {
     if (button.tagName === 'BUTTON' && button.textContent === 'x') {
         const notification = button.parentNode;
         notification.parentNode.removeChild(notification);
-        // moveWindow(notificationArea);
     }
 });
 
@@ -362,9 +348,3 @@ settings.addEventListener('click', (e) => {
     const button = e.target;
     storeSettings(button.textContent);
 });
-
-
-
-// Save settings to local storage when save is clicked
-// Reset settings when reset is clicked
-// Make sure all settings are remembered when page is loaded
