@@ -259,10 +259,6 @@ notificationArea.addEventListener("click", (e) => {
 //      User Message Functions
 // ===================================
 
-// Simulate message submit
-// Display error when empty field
-// Autocomplete search field
-
 const searchbar = document.getElementById('user-search');
 const messagefield = document.getElementById('user-message')
 const searchDrop = document.getElementById('search-dropdown');
@@ -310,7 +306,7 @@ const messageField = document.getAnimations('user-message');
 messageForm.addEventListener ('submit', (e) => {
     e.preventDefault();
     if (checkInput()) {
-        sendButton.style.backgroundColor = '#50C878';
+        sendButton.style.backgroundColor = '#0BDA51';
         sendButton.textContent = "SENT";
         searchbar.value = '';
         messagefield.value = '';
@@ -331,6 +327,46 @@ function checkInput() {
 // ===================================
 //      Settings Functions
 // ===================================
+
+const settings = document.querySelector('.settings')
+const save = document.getElementById('save-button');
+const cancel = document.getElementById('cancel-button');
+const emailNotifications = document.getElementById('email-notifications');
+const privacy = document.getElementById('privacy-status');
+const timeZone = document.getElementById('timezone');
+const placeHolder = document.querySelector('.placeholder');
+
+const getBoolean = (setting) => (setting === 'true');
+
+const retrieveSettings = () => {
+    emailNotifications.checked = getBoolean(localStorage.emailNotifications);
+    privacy.checked = getBoolean(localStorage.privacy);
+    timeZone.value = localStorage.timeZone;
+    
+}
+retrieveSettings();
+
+const storeSettings = (action) => {
+    if (action === 'SAVE') {
+        localStorage.emailNotifications = emailNotifications.checked;
+        localStorage.privacy = privacy.checked;
+        localStorage.timeZone = timeZone.value;
+    } else if (action === 'CANCEL') {
+        localStorage.removeItem('privacy');
+        localStorage.removeItem('emailNotifications');
+        localStorage.timeZone = ""
+        emailNotifications.checked = false;
+        privacy.checked = false;
+        timeZone.value = "";
+    }
+}
+
+settings.addEventListener('click', (e) => {
+    const button = e.target;
+    storeSettings(button.textContent);
+});
+
+
 
 // Save settings to local storage when save is clicked
 // Reset settings when reset is clicked

@@ -4,6 +4,9 @@
   width: 90%;
   #traffic & {
     padding-top: 0px;
+    @include mq("med") {
+      margin-top: $gap;
+    }
   }
 }
 
@@ -15,12 +18,15 @@
 }
 
 .range {
-  margin: 0.5rem 1rem 1rem;
+  margin: 0.5rem 1rem;
   button {
     font-size: 1.1rem;
     padding: 0.6rem;
     border-radius: 25px;
     font-weight: 600;
+  }
+  @include mq("med") {
+    margin-bottom: 0;
   }
 }
 
