@@ -124,13 +124,13 @@ const labelsets = {
     daily: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
     weekly: ['11/28', '12/05', '12/12', '12/19', '12/26', '01/02', '01/09', '01/16'],
     monthly: ['Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
-}
+};
 const datasets = {
     hourly: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
     daily: [5500,3950,4250,5000,4500,6250,5750],
     weekly: [34250,30750,32250,35750,37500,33500,34750,33000],
     monthly: [120000, 104500, 125000, 120000, 135750, 120000],
-}
+};
 
 function changeActive(target) {
     for (let i = 0; i < timeRange.children.length; i++) {
@@ -163,7 +163,7 @@ function addData(chart, labelSet, dataSet) {
 }
 
 function changeInterval(chart, text) {
-    removeData(chart)
+    removeData(chart);
     addData(chart, labelsets[text], datasets[text]);
 }
 
@@ -211,10 +211,10 @@ function createNotification(notif) {
     return div;
 }
 
-const divOffset = (divHeight) => {
-    const totalOffset = divHeight / 2;
-    return totalOffset;
-}
+// const divOffset = (divHeight) => {
+//     const totalOffset = divHeight / 2;
+//     return totalOffset;
+// };
 // function moveWindow(area) {
 //     const divHeight = area.offsetHeight;
 //     const offset = divOffset(divHeight);
@@ -260,7 +260,7 @@ notificationArea.addEventListener("click", (e) => {
 // ===================================
 
 const searchbar = document.getElementById('user-search');
-const messagefield = document.getElementById('user-message')
+const messagefield = document.getElementById('user-message');
 const searchDrop = document.getElementById('search-dropdown');
 
 const createSearchItem = (userName) => {
@@ -269,9 +269,9 @@ const createSearchItem = (userName) => {
     p.textContent = userName;
     div.appendChild(p);
     return div;
-}
+};
 
-searchbar.addEventListener('keyup', activeSearch)
+searchbar.addEventListener('keyup', activeSearch);
 
 const clearSearchItems = () => searchDrop.innerHTML = "";
 
@@ -301,7 +301,7 @@ searchDrop.addEventListener('click', (e) => {
 
 const messageForm = document.getElementById('message-form');
 const sendButton = document.getElementById('submit-button');
-const messageField = document.getAnimations('user-message'); 
+const messageField = document.getElementById('user-message'); 
 
 messageForm.addEventListener ('submit', (e) => {
     e.preventDefault();
@@ -309,7 +309,7 @@ messageForm.addEventListener ('submit', (e) => {
         sendButton.style.backgroundColor = '#0BDA51';
         sendButton.textContent = "SENT";
         searchbar.value = '';
-        messagefield.value = '';
+        messageField.value = '';
     }
 });
 
@@ -328,13 +328,10 @@ function checkInput() {
 //      Settings Functions
 // ===================================
 
-const settings = document.querySelector('.settings')
-const save = document.getElementById('save-button');
-const cancel = document.getElementById('cancel-button');
+const settings = document.querySelector('.settings');
 const emailNotifications = document.getElementById('email-notifications');
 const privacy = document.getElementById('privacy-status');
 const timeZone = document.getElementById('timezone');
-const placeHolder = document.querySelector('.placeholder');
 
 const getBoolean = (setting) => (setting === 'true');
 
@@ -343,7 +340,7 @@ const retrieveSettings = () => {
     privacy.checked = getBoolean(localStorage.privacy);
     timeZone.value = localStorage.timeZone;
     
-}
+};
 retrieveSettings();
 
 const storeSettings = (action) => {
@@ -354,12 +351,12 @@ const storeSettings = (action) => {
     } else if (action === 'CANCEL') {
         localStorage.removeItem('privacy');
         localStorage.removeItem('emailNotifications');
-        localStorage.timeZone = ""
+        localStorage.timeZone = "";
         emailNotifications.checked = false;
         privacy.checked = false;
         timeZone.value = "";
     }
-}
+};
 
 settings.addEventListener('click', (e) => {
     const button = e.target;
