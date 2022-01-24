@@ -109,10 +109,6 @@ select {
     width: 0;
     height: 0;
   }
-  &-label {
-    @include flexBox(flex, row, $align: center);
-    width: 100%;
-  }
 }
 
 .slider {
