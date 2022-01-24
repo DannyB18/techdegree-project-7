@@ -629,6 +629,21 @@ section:last-of-type {
 .alert:last-child {
   margin-bottom: 1rem;
 }
+.alert-marker {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  top: -7px;
+  left: 30px;
+  background-color: #81c98f;
+  border-radius: 50%;
+}
+
+#bell-area {
+  position: relative;
+}
 
 .notification-zone {
   position: relative;

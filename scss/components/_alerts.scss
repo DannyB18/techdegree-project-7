@@ -14,6 +14,21 @@
   &:last-child {
     margin-bottom: 1rem;
   }
+  &-marker {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    top: -7px;
+    left: 30px;
+    background-color: $color-secondary;
+    border-radius: 50%;
+  }
+}
+
+#bell-area {
+  position: relative;
 }
 
 .notification-zone {

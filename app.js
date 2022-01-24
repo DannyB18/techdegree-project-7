@@ -4,6 +4,9 @@ const memberList = newMembersSection.querySelector('.member-list');
 const recentActivitySection = document.getElementById('recent-activity');
 const activityList = recentActivitySection.querySelector('.member-list');
 const timeRange = document.querySelector('.range');
+const studentName = 'Danny Bravo';
+const profileName = document.getElementById('profile-name');
+profileName.textContent = studentName;
 const users = [
     {
         fullName: 'Victoria Chambers',
@@ -193,6 +196,15 @@ const header = document.querySelector('header');
 const bellSVG = header.querySelector('svg');
 const bellPath = bellSVG.querySelector('path');
 const bellButton = document.getElementById('notifications');
+const alertMarker = document.querySelector('.alert-marker');
+
+const showAlertMarker = () => {
+    if (notifications.length > 0) {
+        alertMarker.style.display = "block";
+    } else {
+        alertMarker.style.display = "none";
+    }
+};
 
 header.addEventListener('click', (e) => {
     button = e.target;
@@ -219,6 +231,7 @@ function getNotifications() {
     }
 }
 getNotifications();
+showAlertMarker();
 
 function notifDisplay() {
     for (let i = 0; i < notifications.length; i++) {
@@ -239,6 +252,7 @@ notificationArea.addEventListener("click", (e) => {
         const notification = button.parentNode;
         notification.parentNode.removeChild(notification);
     }
+    showAlertMarker();
 });
 
 // ===================================
@@ -292,7 +306,7 @@ const messageField = document.getElementById('user-message');
 messageForm.addEventListener ('submit', (e) => {
     e.preventDefault();
     if (checkInput()) {
-        sendButton.style.backgroundColor = '#0BDA51';
+        sendButton.style.backgroundColor = '#81c98f';
         sendButton.textContent = "SENT";
         searchbar.value = '';
         messageField.value = '';
