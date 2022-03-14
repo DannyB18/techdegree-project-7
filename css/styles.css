@@ -668,12 +668,13 @@ section:last-of-type {
   color: black;
   background-color: #ebebeb;
   padding: 10px;
-  border: 2px solid #51b6c8;
-  border-radius: 10px;
-  margin: 0 0 2px;
+  border-top: 1px solid grey;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
 }
 .notification:last-of-type {
   margin-bottom: 0;
+  border-bottom: 1px solid grey;
 }
 .notification button {
   margin-left: 20px;
@@ -742,7 +743,20 @@ section:last-of-type {
 }
 @media (min-width: 768px) {
   #userChart {
-    max-height: 150px;
+    max-height: 200px;
+    margin: 0 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  #userChart {
+    max-height: 300px;
+    margin: 2rem 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #dailyBar {
+    margin-top: 2rem;
   }
 }
 

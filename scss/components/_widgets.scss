@@ -33,7 +33,18 @@
 #userChart {
   max-height: 175px;
   @include mq("med") {
-    max-height: 150px;
+    max-height: 200px;
+    margin: 0 3rem;
+  }
+  @include mq("lg") {
+    max-height: 300px;
+    margin: 2rem 0 3rem;
+  }
+}
+
+#dailyBar {
+  @include mq("lg") {
+    margin-top: 2rem;
   }
 }
 
