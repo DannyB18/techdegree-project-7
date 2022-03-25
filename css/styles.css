@@ -707,6 +707,7 @@ section:last-of-type {
 }
 #traffic .chart {
   padding-top: 0px;
+  max-width: 90rem;
 }
 @media (min-width: 768px) {
   #traffic .chart {
