@@ -556,6 +556,7 @@ section:last-of-type {
 
 .user-pic {
   max-width: 80px;
+  height: 80px;
   border-radius: 50%;
 }
 #profile .user-pic {
