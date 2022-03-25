@@ -1,12 +1,15 @@
 .user-pic {
   max-width: 80px;
+  max-height: 80px;
   height: 80px;
   border-radius: 50%;
   #profile & {
     max-width: 45px;
+    max-height: 45px;
   }
   @include mq("lg") {
     max-width: 60px;
+    max-height: 60px;
   }
 }
 

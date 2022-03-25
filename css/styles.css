@@ -556,15 +556,18 @@ section:last-of-type {
 
 .user-pic {
   max-width: 80px;
+  max-height: 80px;
   height: 80px;
   border-radius: 50%;
 }
 #profile .user-pic {
   max-width: 45px;
+  max-height: 45px;
 }
 @media (min-width: 1024px) {
   .user-pic {
     max-width: 60px;
+    max-height: 60px;
   }
 }
 
