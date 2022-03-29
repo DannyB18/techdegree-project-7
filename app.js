@@ -54,32 +54,32 @@ alertZone.addEventListener("click", (e) => {
 // ===================================
 
 function memberCardPicture(userName, picture) {
-    const li = createElement('li', 'className', 'member-card');
+    const div = createElement('div', 'className', 'member-card');
     const img = createElement('img', 'className', 'user-pic');
     img.setAttribute('src', picture);
     img.setAttribute('alt', `Profile picture of ${userName}`);
-    li.appendChild(img);
-    return li;
+    div.appendChild(img);
+    return div;
 }
 
 function createNewMemberCard(userName, picture, email, dateJoined) {
-    const li = memberCardPicture(userName, picture);
+    const div = memberCardPicture(userName, picture);
     const user = createElement('p', 'textContent', userName);
     const emailAddress = createElement('a', 'textContent', email);
     const userInfo = createElement('div', 'className', 'user-info');
     const joinDate = createElement('p', 'textContent', dateJoined);
     userInfo.appendChild(user);
     userInfo.appendChild(emailAddress);
-    li.appendChild(userInfo);
-    li.appendChild(joinDate);
-    return li;
+    div.appendChild(userInfo);
+    div.appendChild(joinDate);
+    return div;
 }
 
 function populateNewMemberList() {
     for (let i = 0; i < users.length; i++) {
         let user = users[i];
-        const li = createNewMemberCard(user.fullName, user.picture, user.email, user.dateJoined);
-        memberList.appendChild(li);
+        const div = createNewMemberCard(user.fullName, user.picture, user.email, user.dateJoined);
+        memberList.appendChild(div);
     }
 }
 populateNewMemberList();
