@@ -75,3 +75,19 @@
 .show {
   display: flex;
 }
+
+.confirmation {
+  font-weight: 600;
+  display: flex;
+  // justify-content: flex-end;
+  margin-top: 0;
+  p {
+    margin-top: 0;
+  }
+}
+
+.checkmark {
+  height: 18px;
+  fill: #81c98f;
+  margin-left: 1rem;
+}

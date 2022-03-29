@@ -700,6 +700,21 @@ section:last-of-type {
   display: flex;
 }
 
+.confirmation {
+  font-weight: 600;
+  display: flex;
+  margin-top: 0;
+}
+.confirmation p {
+  margin-top: 0;
+}
+
+.checkmark {
+  height: 18px;
+  fill: #81c98f;
+  margin-left: 1rem;
+}
+
 .chart {
   padding: 2rem 0;
   margin: auto;

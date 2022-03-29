@@ -302,14 +302,28 @@ searchDrop.addEventListener('click', (e) => {
 const messageForm = document.getElementById('message-form');
 const sendButton = document.getElementById('submit-button');
 const messageField = document.getElementById('user-message'); 
+const deleteConfirmation = () => {
+    const confList = document.querySelectorAll(".confirmation");
+    if (confList.length > 0) {
+        confList.forEach(conf => conf.remove())
+    } else {
+        return;
+    }
+}
 
 messageForm.addEventListener ('submit', (e) => {
     e.preventDefault();
     if (checkInput()) {
-        sendButton.style.backgroundColor = '#81c98f';
-        sendButton.textContent = "SENT";
+        deleteConfirmation();
+        const confirmation = createElement("div", "className", "confirmation")
+        const confirmationText = createElement("p", "textContent", "MESSAGE SENT");
+        const check = createElement("span", "innerHTML", `<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 12.116l2.053-1.897c2.401 1.162 3.924 2.045 6.622 3.969 5.073-5.757 8.426-8.678 14.657-12.555l.668 1.536c-5.139 4.484-8.902 9.479-14.321 19.198-3.343-3.936-5.574-6.446-9.679-10.251z"/></svg>`);
+        confirmationText.style.color = '#81c98f';
         searchbar.value = '';
         messageField.value = '';
+        confirmation.appendChild(confirmationText);
+        confirmation.appendChild(check);
+        messageForm.insertBefore(confirmation, sendButton);
     }
 });
 
