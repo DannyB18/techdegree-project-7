@@ -132,6 +132,7 @@
   border-bottom: $divide-line;
   margin: auto;
   flex: 1 1 0;
+  min-height: fit-content;
   @include flexBox(flex, column, center, center);
   .user-info,
   .status {

@@ -861,6 +861,7 @@ section:last-of-type {
   border-bottom: solid 2px lightgrey;
   margin: auto;
   flex: 1 1 0;
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
